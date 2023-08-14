@@ -1,0 +1,525 @@
+TABEG003
+	import java.util.Scanner;
+
+	class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			System.out.println(a);
+			System.out.println(b);
+		}
+	}
+TABEG010 - Nhập và xuất số thực 1
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			double a = sc.nextDouble();
+			System.out.printf("%.5f", a);
+		}
+	}
+	
+TABEG016 - Làm tròn số đến phần thập phân
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			double a = sc.nextDouble();
+			System.out.printf("%.2f", a);
+		}
+	}
+	
+TABEG018 - Mã ASCII của ký tự	
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			char a = sc.next().charAt(0);
+			System.out.print((int)a);
+		}
+	}
+	
+TABEG019 - Đổi chữ thường thành chữ hoa
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			String str = sc.next();
+			System.out.println(str.toUpperCase());
+		}
+	}
+	
+
+	
+
+
+TADEC001 - Kiểm tra chẵn lẻ	
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int in = sc.nextInt();
+			if(in % 2 == 0){
+				System.out.printf("%d la so chan", in);
+			}else{
+				System.out.printf("%d la so le", in);
+			}
+		}
+	}
+
+TADEC002 - Kiểm tra âm dương
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			float in = sc.nextFloat();
+			if(in < 0){
+				System.out.printf("%.3f la so am", in);
+			}else{
+				System.out.printf("%.3f la so duong", in);
+			}
+		}
+	}
+	
+TADEC013 - Tính cước taxi
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			double km = sc.nextDouble();
+			double money = 0;
+			if(km <= 0.8){
+				money = 10000;
+			}else if(km <= 30){
+				money = 10000 + (km - 0.8) * 11000;
+			} else{
+				money = 10000 + (30 - 0.8) * 11000 + (km - 30) * 10000;
+			}
+			System.out.print(((int)money/ 1000) * 1000);
+		}
+	}
+
+TADEC015 - Xác định quý trong năm
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int month = sc.nextInt();
+			int quater = (month - 1) / 3 + 1;
+			if (quater == 1) {
+				System.out.printf("Thang %d thuoc Quy I", month);
+			} else if (quater == 2) {
+				System.out.printf("Thang %d thuoc Quy II", month);
+			}else if (quater == 3) {
+				System.out.printf("Thang %d thuoc Quy III", month);
+			}else if (quater == 4) {
+				System.out.printf("Thang %d thuoc Quy IV", month);
+			}else {
+				System.out.printf("Trong nam khong co thang %d", month);
+			}
+		}
+	}
+	
+TADEC016 - Kiểm tra năm nhuận
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int year = sc.nextInt();
+			if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+				System.out.printf("Nam %d la nam nhuan", year);
+			} else {
+				System.out.printf("Nam %d khong phai la nam nhuan", year);
+			}
+		}
+	}
+	
+	
+TADEC017 - Kiểm tra tính hợp lệ của ngày tháng
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] nam_nhuan = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] nam_khong_nhuan = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        boolean hop_le = true;
+
+        Scanner sc = new Scanner(System.in);
+        int day = sc.nextInt();
+        int month = sc.nextInt();
+        int year = sc.nextInt();
+
+        if ((day <= 0) || (month <= 0) || (year < 0)) {
+            hop_le = false;
+        } else {
+            if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+                if (month > 12){
+                    hop_le = false;
+                } else {
+                    if(day > nam_nhuan[month - 1]){
+                        hop_le = false;
+                    }
+                }
+            } else {
+                if (month > 12){
+                    hop_le = false;
+                } else {
+                    if(day > nam_khong_nhuan[month - 1]){
+                        hop_le = false;
+                    }
+                }
+            }
+        }
+        
+        // print result
+        if (hop_le){
+            System.out.printf("%d/%d/%d: hop le", day, month, year);
+        }else {
+            System.out.printf("%d/%d/%d: khong hop le", day, month, year);
+        }
+    }
+}
+
+TALO_001 - Tính tổng 1/n
+	import java.util.Scanner;
+
+	public class Main {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			int n = sc.nextInt();
+			double S = 0.0;
+			for(int i = 1; i <= n; i++){
+				S = S + (1.0) / i;
+			}
+			System.out.printf("%.10f", S);
+		}
+	}
+	
+
+TALO_002 - Tính tổng 1/n!
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double S = 0.0;
+        for(int i = 1; i <= n; i++){
+            long giai_thua = 1;
+            for (int j = 1; j <= i; j++) {
+                giai_thua *= j;
+            }
+            S += (1.0) / giai_thua;
+        }
+        System.out.printf("%.10f", S);
+    }
+}
+
+TALO_023 - Tính tổng số âm, tính tổng số dương
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int index = 1;
+        int[] NegativeSum = new int[t];
+        int[] PositiveSum = new int[t];;
+        do {
+            int number = sc.nextInt();
+            if(number > 0) {
+                PositiveSum[index - 1] += number;
+            }else if(number < 0){
+                NegativeSum[index - 1] += number;
+            }else{
+                index ++;
+            }
+        }while (index <= t);
+
+        for(int i = 0; i < t; i ++){
+            System.out.printf("NegativeSum = %6d;     PositiveSum = %6d\n", NegativeSum[i], PositiveSum[i]);
+        }
+    }
+}
+
+
+TALO_024 - Tìm min, max
+
+package org.example;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int index = 1;
+        double[] Min = new double[t];
+        double[] Max = new double[t];
+        do {
+            int number = sc.nextInt();
+            int idx = 1;
+            do {
+                double value = sc.nextDouble();
+                if (idx == 1) {
+                    Min[index - 1] = value;
+                    Max[index - 1] = value;
+                } else {
+                    // set min
+                    if (Min[index - 1] > value) {
+                        Min[index - 1] = value;
+                    }
+                    // set max
+                    if (Max[index - 1] < value) {
+                        Max[index - 1] = value;
+                    }
+                }
+                idx++;
+            } while (idx <= number);
+            index++;
+        } while (index <= t);
+
+        for (int i = 0; i < t; i++) {
+            System.out.printf("Min = %15.3f;     Max = %15.3f\n", Min[i], Max[i]);
+        }
+    }
+}
+
+TALO_026 - Tìm ước chung lớn nhất
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        while (a != b)
+        {
+            if(a > b){
+                a = a - b;
+            }else {
+                b = b -a;
+            }
+        }
+        System.out.print(a);
+    }
+}
+
+TALO_027 - Tìm bội số chung nhỏ nhất
+
+import java.util.Scanner;
+
+public class Main {
+    public static int Ucln(int a, int b){
+        while (a != b)
+        {
+            if(a > b){
+                a = a - b;
+            }else {
+                b = b -a;
+            }
+        }
+        return a;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_case = sc.nextInt();
+        int[] result = new int[number_case];
+        int[] array_a = new int[number_case];
+        int[] array_b = new int[number_case];
+
+        int index = 1;
+        while (index <= number_case){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int ucln = Ucln(a, b);
+            array_a[index -1] = a;
+            array_b[index -1] = b;
+            result[index -1] = (a / ucln) * b;
+            index ++;
+        }
+        for (int i = 0; i < number_case; i++) {
+            System.out.printf("LCM(%5d, %5d) = %5d\n", array_a[i], array_b[i], result[i]);
+        }
+    }
+}
+
+
+TAARR001 - Kiểm tra sự tồn tại một phần tử trong mảng
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_item = sc.nextInt();
+        int[] checking_array = new int[number_item];
+        boolean bExist = false;
+        int index = 1;
+        while (index <= number_item) {
+            checking_array[index - 1] = sc.nextInt();
+            index++;
+        }
+        int value_check = sc.nextInt();
+        for (int i = 0; i < number_item; i++) {
+            if (value_check == checking_array[i]) {
+                bExist = true;
+                break;
+            }
+        }
+        if (bExist) {
+            System.out.print("Yes");
+        } else {
+            System.out.print("No");
+        }
+    }
+}
+
+TAARR002 - Đếm số lần xuất hiện một phần tử trong mảng
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_item = sc.nextInt();
+        int[] checking_array = new int[number_item];
+        int num = 0;
+        int index = 1;
+        while (index <= number_item) {
+            checking_array[index - 1] = sc.nextInt();
+            index++;
+        }
+        int value_check = sc.nextInt();
+        for (int i = 0; i < number_item; i++) {
+            if (value_check == checking_array[i]) {
+                num ++;
+            }
+        }
+        System.out.print(num);
+    }
+}
+
+TAARR008 - Đảo ngược mảng
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_item = sc.nextInt();
+        int[] checking_array = new int[number_item];
+        int num = 0;
+        int index = 1;
+        while (index <= number_item) {
+            checking_array[index - 1] = sc.nextInt();
+            index++;
+        }
+        for (int i = 0; i < number_item; i++) {
+            System.out.printf("%5d", checking_array[i]);
+        }
+        System.out.println();
+        for (int j = number_item - 1; j >= 0; j --) {
+            System.out.printf("%5d", checking_array[j]);
+        }
+    }
+}
+
+
+TAARR009 - Chọn lọc phần tử của mảng
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_item = sc.nextInt();
+        double[] checking_array = new double[number_item];
+        int index = 1;
+        double total = 0;
+        while (index <= number_item) {
+            checking_array[index - 1] = sc.nextDouble();
+            total += checking_array[index - 1];
+            index ++;
+        }
+        System.out.printf("Avg = %.3f\n", total / number_item);
+        for (int i = 0; i < number_item; i++) {
+            if(checking_array[i] >  total / number_item){
+                System.out.printf("%.2f ", checking_array[i]);
+            }
+        }
+
+    }
+}
+
+
+
+
+TAARR014 - Đếm số lượng phần tử chẵn, lẻ của mảng
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number_testcase = sc.nextInt();
+        int number_item = sc.nextInt();
+        int[][] data_array = new int[number_testcase][number_item];
+
+        int idx_testcase = 1;
+        double total = 0;
+        while (idx_testcase <= number_testcase) {
+            int idx_item = 1;
+            while (idx_item <= number_item) {
+                data_array[idx_testcase - 1][idx_item - 1] = sc.nextInt();
+                idx_item++;
+            }
+            idx_testcase++;
+        }
+
+        for (int i = 0; i < number_testcase; i++) {
+            int num_even = 0;
+            int num_odd = 0;
+            for (int j = 0; j < number_item; j++) {
+                if (data_array[i][j] % 2 != 0) {
+                    num_odd++;
+                } else {
+                    num_even++;
+                }
+            }
+            System.out.printf("Testcase %d: %d even element(s), %d odd element(s)\n", i, num_even, num_odd);
+        }
+    }
+}
+
+TAARR015 - Tính tổng các phần tử của mảng
+import java.util.Scanner;
+
+public class Main {
+    public static int Calculator_Total(int[] arr) {
+        int total = 0;
+        for (int value : arr) {
+            total += value;
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number_item = sc.nextInt();
+        int[] data_array = new int[number_item];
+        int index = 1;
+
+        while (index <= number_item) {
+            data_array[index - 1] = sc.nextInt();
+            index++;
+        }
+        System.out.print(Calculator_Total(data_array));
+    }
+}
